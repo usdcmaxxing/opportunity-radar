@@ -277,6 +277,33 @@ function groupBy(arr, key) {
 }
 
 // ── Brief ────────────────────────────────────────────────────────────────
+const MONTHS = { jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5, jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11 };
+
+// Parse "Nov 18, 2026", "Nov 02 - Dec 15, 2026", "13/9/2026" → Date or null
+function parseDeadline(s) {
+  if (!s) return null;
+  const t = String(s).trim();
+  // "Mon DD, YYYY" or "Mon DD - Mon DD, YYYY" — use the LAST date (the end of the range)
+  const matches = [...t.matchAll(/([A-Za-z]{3})\s+(\d{1,2}),\s*(\d{4})/g)];
+  if (matches.length) {
+    const m = matches[matches.length - 1];
+    const mon = MONTHS[m[1].toLowerCase()];
+    if (mon != null) return new Date(Date.UTC(+m[3], mon, +m[2]));
+  }
+  // "DD/MM/YYYY"
+  const d = t.match(/(\d{1,2})\/(\d{1,2})\/(\d{4})/);
+  if (d) return new Date(Date.UTC(+d[3], +d[2] - 1, +d[1]));
+  return null;
+}
+
+function isExpiringSoon(deadline, days) {
+  const d = parseDeadline(deadline);
+  if (!d) return false;
+  const now = new Date();
+  const diff = (d.getTime() - now.getTime()) / 86_400_000;
+  return diff >= -30 && diff <= days; // include recently-expired so the brief isn't stale
+}
+
 export function renderBrief(result, limit = 30) {
   const lines = [];
   lines.push(`# 💰 Daily Money Radar`);
@@ -299,6 +326,22 @@ export function renderBrief(result, limit = 30) {
     const link = o.url ? `[${title}](${o.url})` : title;
     lines.push(`| ${i + 1} | ${link} | ${o.source} | ${prize} | ${ev} | ${dl} |`);
   });
+
+  // Expiring soon — prize opportunities with a deadline in the next 14 days
+  const urgent = result.opportunities.filter((o) => o.prize_usd >= 1000 && isExpiringSoon(o.deadline, 14));
+  if (urgent.length) {
+    lines.push("");
+    lines.push(`## ⏰ Expiring in 14 days — act now`);
+    lines.push("");
+    lines.push(`| Opportunity | Prize | Deadline |`);
+    lines.push(`|---|---|---|`);
+    urgent.slice(0, 10).forEach((o) => {
+      const prize = `$${o.prize_usd.toLocaleString()}`;
+      const title = o.title.length > 50 ? o.title.slice(0, 47) + "…" : o.title;
+      const link = o.url ? `[${title}](${o.url})` : title;
+      lines.push(`| ${link} | ${prize} | ${o.deadline} |`);
+    });
+  }
   lines.push("");
   lines.push(`---`);
   lines.push(`_Full data: ~/opportunity-radar/data/opportunities.json_`);
