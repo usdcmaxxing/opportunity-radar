@@ -1,0 +1,14 @@
+{
+  "name": "opportunity-radar",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Daily money-opportunity radar \u2014 hackathons, bug bounties, grants, agent markets",
+  "scripts": {
+    "scan": "node scanner.mjs",
+    "brief": "node scanner.mjs --brief",
+    "serve": "node server.mjs"
+  },
+  "dependencies": {
+    "playwright": "^1.40.0"
+  }
+}
