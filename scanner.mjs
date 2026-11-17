@@ -268,6 +268,17 @@ export async function scanAll() {
   } catch (e) {
     console.warn(`  prediction: ${e.message}`);
   }
+  // Threat intelligence — active attacks, exploits, breaches (defensive)
+  let threat = [];
+  try {
+    const { scanThreatIntel } = await import("./sources/threatintel.mjs");
+    const t = await scanThreatIntel();
+    threat = [...t.cisa, ...t.hacks, ...t.breaches, ...t.ncsc];
+    console.log(`  Threat intel... ${threat.length} (CISA ${t.cisa.length}, hacks ${t.hacks.length}, breaches ${t.breaches.length}, advisories ${t.ncsc.length})`);
+    all.push(...threat);
+  } catch (e) {
+    console.warn(`  threatintel: ${e.message}`);
+  }
   const ranked = rank(all);
   const result = {
     scanned_at: new Date().toISOString(),
