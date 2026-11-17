@@ -8,10 +8,23 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = path.join(__dirname, "..", "data");
 const UA = { "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36" };
 
-async function j(url) {
-  const r = await fetch(url, { headers: UA, signal: AbortSignal.timeout(25000) });
-  if (!r.ok) throw new Error(`HTTP ${r.status}`);
-  return r.json();
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+async function j(url, attempts = 4) {
+  // CoinGecko rate-limits (429) are transient — back off and retry.
+  let lastErr;
+  for (let i = 0; i < attempts; i++) {
+    try {
+      const r = await fetch(url, { headers: UA, signal: AbortSignal.timeout(25000) });
+      if (r.ok) return r.json();
+      lastErr = new Error(`HTTP ${r.status}`);
+      if (r.status !== 429 && r.status < 500) throw lastErr;
+    } catch (e) {
+      lastErr = e;
+    }
+    await sleep(2000 * (i + 1));
+  }
+  throw lastErr;
 }
 
 const now = new Date().toISOString();

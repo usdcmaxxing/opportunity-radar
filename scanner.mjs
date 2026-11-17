@@ -370,6 +370,10 @@ export function renderBrief(result, limit = 30) {
   lines.push("");
   lines.push(`---`);
   lines.push(`_Full data: ~/opportunity-radar/data/opportunities.json_`);
+  lines.push("");
+  lines.push(`---`);
+  lines.push(`**🧩 Skill Store** — agent skills paid in USDC: usdc-gate-live.vercel.app/skills`);
+  lines.push(`**📊 USDC Gate** — 14 paid datasets + risk APIs: usdc-gate-live.vercel.app/catalog`);
   return lines.join("\n");
 }
 

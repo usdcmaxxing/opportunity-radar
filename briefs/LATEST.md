@@ -1,6 +1,6 @@
 Scanning opportunity sources...
 
-  Devpost hackathons... 53
+  Devpost hackathons... 52
   HackerOne bounties... 0
   Agentic.Market... 100
   CoinGecko tokens... 50
@@ -8,17 +8,19 @@ Scanning opportunity sources...
   Immunefi bounties... 10
   HackerOne bounties... 0
   Gitcoin grants... 0
+  Prediction markets... 160 (0 edges)
 
-✅ 273 opportunities → data/opportunities.json
+✅ 312 opportunities → data/opportunities.json
 
 # 💰 Daily Money Radar
-_2026-11-16 — 273 opportunities found_
+_2026-11-17 — 312 opportunities found_
 
 ## Categories
 - **agent-market**: 100
 - **bounty**: 60
-- **hackathon**: 53
+- **hackathon**: 52
 - **token**: 50
+- **prediction**: 40
 - **bugbounty**: 10
 
 ## Top 30 by expected value
@@ -48,13 +50,13 @@ _2026-11-16 — 273 opportunities found_
 | 21 | [Open Agentic Web Challenge](https://cognizant-agenticweb.devpost.com/) | Devpost | $10,000 | $167 | Nov 11, 2026 - Jan 11, 2027 |
 | 22 | [Arbiter Hacks V1](https://arbiter-hacks-v1.devpost.com/) | Devpost | $7,800 | $130 | Oct 20 - Dec 21, 2026 |
 | 23 | [SLAY HACKS](https://slayy-hacks.devpost.com/) | Devpost | $4,500 | $75 | Nov 07 - Dec 07, 2026 |
-| 24 | [Learn AR with SPECS](https://learn-specs.devpost.com/) | Devpost | $2,500 | $42 | Nov 10 - Dec 07, 2026 |
-| 25 | [GenHacks](https://genhacks-open.devpost.com/) | Devpost | $1,050 | $18 | Nov 01 - Dec 26, 2026 |
-| 26 | [AI Agents for Founders Challenge — HETIC 2026](https://ai-agents-founders-hetic-26.devpost.com/) | Devpost | $1,000 | $17 | Nov 04 - Dec 18, 2026 |
-| 27 | [Dakar Bitcoin Hack by BTrust](https://dakar-bitcoin-hack-2026.devpost.com/) | Devpost | $900 | $15 | Oct 26 - Nov 20, 2026 |
-| 28 | [KUK VIRTUAL HACKATHON](https://kuk-virtual-hackathon.devpost.com/) | Devpost | $800 | $13 | Nov 15 - 22, 2026 |
-| 29 | [Silicon Valley Buildathon](https://silicon-valley-buildathon.devpost.com/) | Devpost | $500 | $8 | Nov 08 - Dec 15, 2026 |
-| 30 | [Teens Hack Houston Hackathon](https://tripleh.devpost.com/) | Devpost | $300 | $5 | Nov 14 - 21, 2026 |
+| 24 | [HackOut! 2027](https://hackout-branchout.devpost.com/) | Devpost | $3,000 | $50 | Nov 03, 2026 - Feb 01, 2027 |
+| 25 | [Learn AR with SPECS](https://learn-specs.devpost.com/) | Devpost | $2,500 | $42 | Nov 10 - Dec 07, 2026 |
+| 26 | [GenHacks](https://genhacks-open.devpost.com/) | Devpost | $1,050 | $18 | Nov 01 - Dec 26, 2026 |
+| 27 | [AI Agents for Founders Challenge — HETIC 2026](https://ai-agents-founders-hetic-26.devpost.com/) | Devpost | $1,000 | $17 | Nov 04 - Dec 18, 2026 |
+| 28 | [Dakar Bitcoin Hack by BTrust](https://dakar-bitcoin-hack-2026.devpost.com/) | Devpost | $900 | $15 | Oct 26 - Nov 20, 2026 |
+| 29 | [KUK VIRTUAL HACKATHON](https://kuk-virtual-hackathon.devpost.com/) | Devpost | $800 | $13 | Nov 15 - 22, 2026 |
+| 30 | [Silicon Valley Buildathon](https://silicon-valley-buildathon.devpost.com/) | Devpost | $500 | $8 | Nov 08 - Dec 15, 2026 |
 
 ## ⏰ Expiring in 14 days — act now
 
