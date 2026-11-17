@@ -257,11 +257,23 @@ export async function scanAll() {
   } catch (e) {
     console.warn(`  browser scrapers: ${e.message}`);
   }
+  // Prediction markets (Polymarket + Kalshi) — event derivatives, a different asset class
+  let predEdges = [];
+  try {
+    const { scanPrediction } = await import("./sources/prediction.mjs");
+    const pred = await scanPrediction();
+    console.log(`  Prediction markets... ${pred.polyCount + pred.kalshiCount} (${pred.edges.length} edges)`);
+    all.push(...pred.markets);
+    predEdges = pred.edges;
+  } catch (e) {
+    console.warn(`  prediction: ${e.message}`);
+  }
   const ranked = rank(all);
   const result = {
     scanned_at: new Date().toISOString(),
     total: all.length,
     by_category: groupBy(all, "category"),
+    prediction_edges: predEdges,
     opportunities: ranked,
   };
   writeFileSync(path.join(DATA_DIR, "opportunities.json"), JSON.stringify(result, null, 2));
@@ -326,6 +338,19 @@ export function renderBrief(result, limit = 30) {
     const link = o.url ? `[${title}](${o.url})` : title;
     lines.push(`| ${i + 1} | ${link} | ${o.source} | ${prize} | ${ev} | ${dl} |`);
   });
+
+  // Prediction-market edges (cross-venue / in-market mispricing)
+  if (result.prediction_edges?.length) {
+    lines.push("");
+    lines.push(`## 🎯 Prediction-market edges`);
+    lines.push("");
+    lines.push(`| Edge | Market | Detail |`);
+    lines.push(`|---|---|---|`);
+    result.prediction_edges.slice(0, 8).forEach((e) => {
+      const title = e.title.length > 45 ? e.title.slice(0, 42) + "…" : e.title;
+      lines.push(`| ${e.edge_pct}% | ${title} | ${e.detail} |`);
+    });
+  }
 
   // Expiring soon — prize opportunities with a deadline in the next 14 days
   const urgent = result.opportunities.filter((o) => o.prize_usd >= 1000 && isExpiringSoon(o.deadline, 14));

@@ -36,7 +36,7 @@ _2026-11-16 — 273 opportunities found_
 | 9 | [StackingDAO](https://immunefi.com/bug-bounty/stackingdao/information/) | Immunefi | $100,000 | $7,500 | 2/9/2026 |
 | 10 | [Immunefi](https://immunefi.com/bug-bounty/immunefi/information/) | Immunefi | $76,200 | $5,715 | 9/9/2026 |
 | 11 | [Cosmos](https://immunefi.com/bug-bounty/cosmos/information/) | Immunefi | $54,500 | $4,088 | 12/11/2026 |
-| 12 | [Hedera](https://immunefi.com/bug-bounty/hedera/information/) | Immunefi | $30,000 | $2,250 | 30/9/2026 |
+| 12 | [Hedera](https://immunefi.com/bug-bounty/hedera/information/) | Immunefi | $30,000 | $2,250 | 16/11/2026 |
 | 13 | [Codegeist 2026: Build with context. Ship w…](https://codegeist2026.devpost.com/) | Devpost | $120,000 | $2,000 | Oct 27 - Dec 22, 2026 |
 | 14 | [Kiroween 2026](https://kiroween.devpost.com/) | Devpost | $100,000 | $1,667 | Oct 30 - Dec 04, 2026 |
 | 15 | [AWS MSP AI Hackathon](https://aws-agentic-msp.devpost.com/) | Devpost | $64,000 | $1,067 | Nov 02 - Dec 11, 2026 |
@@ -55,6 +55,16 @@ _2026-11-16 — 273 opportunities found_
 | 28 | [KUK VIRTUAL HACKATHON](https://kuk-virtual-hackathon.devpost.com/) | Devpost | $800 | $13 | Nov 15 - 22, 2026 |
 | 29 | [Silicon Valley Buildathon](https://silicon-valley-buildathon.devpost.com/) | Devpost | $500 | $8 | Nov 08 - Dec 15, 2026 |
 | 30 | [Teens Hack Houston Hackathon](https://tripleh.devpost.com/) | Devpost | $300 | $5 | Nov 14 - 21, 2026 |
+
+## ⏰ Expiring in 14 days — act now
+
+| Opportunity | Prize | Deadline |
+|---|---|---|
+| [ENS](https://immunefi.com/bug-bounty/ens/information/) | $250,000 | 11/11/2026 |
+| [Meta VR Start Developer Competition 2026](https://start-developer-competition-26.devpost.com/) | $1,000,000 | Sep 24 - Nov 18, 2026 |
+| [HackWithAditya](https://hackwithaditya.devpost.com/) | $500,000 | Oct 16 - Nov 25, 2026 |
+| [Cosmos](https://immunefi.com/bug-bounty/cosmos/information/) | $54,500 | 12/11/2026 |
+| [Hedera](https://immunefi.com/bug-bounty/hedera/information/) | $30,000 | 16/11/2026 |
 
 ---
 _Full data: ~/opportunity-radar/data/opportunities.json_
