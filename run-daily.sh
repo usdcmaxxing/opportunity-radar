@@ -42,6 +42,20 @@ const out = {
 };
 fs.writeFileSync('/Users/asa/usdc-gate/data/money-opportunity-registry.json', JSON.stringify(out, null, 2));
 console.log('  money-opportunity-registry:', opp.length, 'records');
+
+// Prediction-market dataset
+const pred = d.opportunities.filter(o => o.category === 'prediction');
+fs.writeFileSync('/Users/asa/usdc-gate/data/prediction-market-registry.json', JSON.stringify({
+  name: 'Prediction Market Registry',
+  description: 'Live event-derivative markets from Polymarket and Kalshi: odds, 24h volume, and close times.',
+  version: new Date().toISOString().slice(0,10),
+  updated_at: d.scanned_at,
+  source: 'Polymarket Gamma API + Kalshi API',
+  total: pred.length,
+  records: pred,
+  edges: d.prediction_edges || [],
+}, null, 2));
+console.log('  prediction-market-registry:', pred.length, 'records');
 " >> "briefs/$DATE.log" 2>&1
 
 echo "Radar updated: $DATE"
